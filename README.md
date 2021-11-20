@@ -1,1 +1,1 @@
-# algo-cryptography-RSA-study-university
+# algo-RSA
