@@ -45,8 +45,30 @@ public class RSAalg {
         return encrypted;
     }
 
+    //Overload of encrypt method to work without creation of Class instance
+    public ArrayList<String> encrypt(int e, BigInteger n){
+        BigInteger symbol;
+        ArrayList<String> encrypted=new ArrayList<>();
+        for(char c : input){
+            symbol=BigInteger.valueOf((long)c);
+            symbol=(symbol.pow(e)).mod(n);
+            encrypted.add(String.valueOf(symbol));
+        }
+        return encrypted;
+    }
+
     //Private key: d,n
     public String decrypt(ArrayList<String> encryptedMessege){
+        String message="";
+        for(String character:encryptedMessege){
+            BigInteger bi = BigInteger.valueOf(Long.parseLong(character));
+            bi = (bi.pow((int) d)).mod(n);
+            message = message + (char)(bi.longValue());
+        }
+        return message;
+    }
+    //Overload of decrypt method to work without creation of Class instance
+    public static String decrypt(ArrayList<String> encryptedMessege, long d, BigInteger n){
         String message="";
         for(String character:encryptedMessege){
             BigInteger bi = BigInteger.valueOf(Long.parseLong(character));
