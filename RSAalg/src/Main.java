@@ -3,17 +3,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static boolean isSimple(long x){
-        if(x<2)
-            return false;
-        for(long i = 2; i < x; i++){
-            if((x % i) == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Input your text in one line:\n");
@@ -24,7 +13,7 @@ public class Main {
             System.out.println("Input simple numbers p and and q:");
             p=in.nextLong();
             q=in.nextLong();
-        } while (!(isSimple(p) && isSimple(q)));
+        } while (!(SimpleNumGenerator.isSimple(p) && SimpleNumGenerator.isSimple(q)));
         RSAalg encryption = new RSAalg(input,p,q);
         in.close();
 
