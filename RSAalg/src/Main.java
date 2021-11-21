@@ -9,22 +9,17 @@ public class Main {
         Scanner in = new Scanner(System.in);
         System.out.println("Input your text in one line:\n");
         String input = in.nextLine();
-        long p;
-        long q;
-        do{
-            System.out.println("Input simple numbers p and and q:");
-            p=in.nextLong();
-            q=in.nextLong();
-        } while (!(SimpleNumGenerator.isSimple(p) && SimpleNumGenerator.isSimple(q)));
-        RSAalg encryption = new RSAalg(input,p,q);
         in.close();
 
-        //encrypt and print result
+        RSAalg encryption = new RSAalg(input,primeNumbersPair[0],primeNumbersPair[1]);
+
+        //encrypt and print encrypted message
         ArrayList<String> encryptedMessage = encryption.encrypt();
         for(String s : encryptedMessage){
             System.out.print(s+" ");
         }
 
+        //decrypt and print the message
         String decryptedMessage = encryption.decrypt(encryptedMessage);
         System.out.println(decryptedMessage);
     }
