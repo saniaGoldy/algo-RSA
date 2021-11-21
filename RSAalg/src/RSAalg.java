@@ -1,6 +1,5 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.List;
 
 public class RSAalg {
     private long p;
@@ -19,18 +18,34 @@ public class RSAalg {
         n=BigInteger.valueOf(p*q);
         m=(p-1)*(q-1);
         e=calculateE(m);
-        d=(2*m + 1)/e;
+        for (int i = 0; i <= 9; i++) {
+            int x = (int) (1 + (i * m));
+
+            // d is for private key
+            if (x % e == 0) {
+                d = x / e;
+                break;
+            }
+        }
+        System.out.println(d);
     }
 
     public int calculateE(long m){
-        int e=3;
-        for(int i=2; i<=e; i++){
-            if((e%i==0) && (m%i==0)){
-                e+=2;
-                i=1;
+        int e=2;
+        for(;e<m;e++){
+            if(gcd(e,m) == 1){
+                break;
             }
         }
         return e;
+    }
+
+    static long gcd(long e, long m)
+    {
+        if (e == 0)
+            return m;
+        else
+            return gcd(m % e, e);
     }
 
     //Open key: e,n
