@@ -7,15 +7,16 @@ public class SimpleNumGenerator {
 
     public SimpleNumGenerator(){
         SecureRandom random = new SecureRandom();
-        //Get random number in range 5 - Integer.MAX_VALUE
-        int randomKey = random.nextInt(Integer.MAX_VALUE-4);
-        generatePrimeNumbers(randomKey);
+        //Get random number in range 0 - 9998
+        int randomKey = random.nextInt(9998);
+        generatePrimeNumbers(10000);
         //Tests
         for(int i:simpleNumArr){
             System.out.print(i+" ");
         }
     }
 
+    //Don`t need it btw
     public static boolean isSimple(long x){
         if(x<2)
             return false;
@@ -27,15 +28,27 @@ public class SimpleNumGenerator {
         return true;
     }
 
-    // Counts randomKey prime numbers and write them in simpleNumArr
-    private void generatePrimeNumbers(int randomKey){
+    //Method to check is n is a next prime number using already calculated prime numbers
+    public boolean isNextPrime(int n){
+        for(int i:simpleNumArr){
+            if(n%i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Calculates n prime numbers and write them in simpleNumArr
+    private void generatePrimeNumbers(int n){
         int cntr=0;
         int currN=3;
-        while (cntr<=randomKey){
-            if(isSimple(currN)){
+        while (cntr<=n){
+            if(isNextPrime(currN)){
                 simpleNumArr.add(currN);
+                currN++;
                 cntr++;
             }
+            currN++;
         }
     }
 }
