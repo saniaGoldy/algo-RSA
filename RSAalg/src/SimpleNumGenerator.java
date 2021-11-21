@@ -53,9 +53,10 @@ public class SimpleNumGenerator {
         SecureRandom random = new SecureRandom();
         //Get random number in range 0 - 9998
         //Because 9999 is last index in simpleNumArr
-        int randomKey = random.nextInt(9998);
-        int[] pAndQ = {simpleNumArr.get(randomKey),simpleNumArr.get(randomKey+1)};
+        //int randomKey = random.nextInt(998);
+        //int[] pAndQ = {simpleNumArr.get(randomKey),simpleNumArr.get(randomKey+1)};
         //Tests
+        int[] pAndQ = {simpleNumArr.get(simpleNumArr.size()-2),simpleNumArr.get(simpleNumArr.size()-1)};
         System.out.println(pAndQ[0] + " " + pAndQ[1] + "\n");
         //
         return pAndQ;
