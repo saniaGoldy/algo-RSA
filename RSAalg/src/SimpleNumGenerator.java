@@ -5,7 +5,7 @@ public class SimpleNumGenerator {
     ArrayList <Integer> simpleNumArr=new ArrayList<>();
 
     public SimpleNumGenerator(){
-        generatePrimeNumbers(10000);
+        generatePrimeNumbers(10);
         //Tests
         for(int i:simpleNumArr){
             System.out.print(i+" ");
@@ -38,7 +38,7 @@ public class SimpleNumGenerator {
     // Calculates n prime numbers and write them in simpleNumArr
     private void generatePrimeNumbers(int n){
         int cntr=0;
-        int currN=3;
+        int currN=2;
         while (cntr<=n){
             if(isNextPrime(currN)){
                 simpleNumArr.add(currN);
