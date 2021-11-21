@@ -26,7 +26,7 @@ public class RSAalg {
         int e=3;
         for(int i=2; i<=e; i++){
             if((e%i==0) && (m%i==0)){
-                e+=2;
+                e+=1;
                 i=1;
             }
         }

@@ -26,3 +26,7 @@ public class Main {
 
 
 }
+
+
+// for p=29 q=31
+//
