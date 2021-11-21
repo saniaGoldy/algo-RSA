@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        SimpleNumGenerator primeGen= new SimpleNumGenerator();
         Scanner in = new Scanner(System.in);
         System.out.println("Input your text in one line:\n");
         String input = in.nextLine();
