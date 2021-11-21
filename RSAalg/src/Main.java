@@ -15,18 +15,16 @@ public class Main {
 
         //encrypt and print encrypted message
         ArrayList<String> encryptedMessage = encryption.encrypt();
+        System.out.println("Message after encryption:\n");
         for(String s : encryptedMessage){
             System.out.print(s+" ");
         }
+        System.out.println();
 
         //decrypt and print the message
         String decryptedMessage = encryption.decrypt(encryptedMessage);
-        System.out.println(decryptedMessage);
+        System.out.println("Message after decryption:\n"+decryptedMessage);
     }
 
 
 }
-
-
-// for p=29 q=31
-//

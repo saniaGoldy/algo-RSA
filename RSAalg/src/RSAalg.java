@@ -28,7 +28,6 @@ public class RSAalg {
                 break;
             }
         }
-        System.out.println(d);
     }
 
     public int calculateE(long m){

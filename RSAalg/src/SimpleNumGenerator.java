@@ -5,12 +5,13 @@ public class SimpleNumGenerator {
     ArrayList <Integer> simpleNumArr=new ArrayList<>();
 
     public SimpleNumGenerator(){
-        generatePrimeNumbers(10);
-        //Tests
+        generatePrimeNumbers(100);
+        /*Tests
         for(int i:simpleNumArr){
             System.out.print(i+" ");
         }
         System.out.println();
+        */
     }
 
     //Don`t need it btw
@@ -53,12 +54,12 @@ public class SimpleNumGenerator {
         SecureRandom random = new SecureRandom();
         //Get random number in range 0 - 9998
         //Because 9999 is last index in simpleNumArr
-        //int randomKey = random.nextInt(998);
-        //int[] pAndQ = {simpleNumArr.get(randomKey),simpleNumArr.get(randomKey+1)};
-        //Tests
-        int[] pAndQ = {simpleNumArr.get(simpleNumArr.size()-2),simpleNumArr.get(simpleNumArr.size()-1)};
-        System.out.println(pAndQ[0] + " " + pAndQ[1] + "\n");
-        //
+        int randomKey = random.nextInt(98);
+        int[] pAndQ = {simpleNumArr.get(randomKey),simpleNumArr.get(randomKey+1)};
+        /*Tests
+        //int[] pAndQ = {simpleNumArr.get(simpleNumArr.size()-2),simpleNumArr.get(simpleNumArr.size()-1)};
+        //System.out.println(pAndQ[0] + " " + pAndQ[1] + "\n");
+        */
         return pAndQ;
     }
 }
