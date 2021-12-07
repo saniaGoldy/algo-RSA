@@ -7,15 +7,16 @@ public class Main {
         SimpleNumGenerator primeGen= new SimpleNumGenerator();
         int[] primeNumbersPair = primeGen.getRandomPAndQ();
         Scanner in = new Scanner(System.in);
-        System.out.println("Input your text in one line:\n");
+        System.out.println("Input your text in one line:");
         String input = in.nextLine();
+        System.out.println();
         in.close();
-
+        System.out.println(primeNumbersPair[0]+" "+primeNumbersPair[1]);
         RSAalg encryption = new RSAalg(input,primeNumbersPair[0],primeNumbersPair[1]);
 
         //encrypt and print encrypted message
         ArrayList<String> encryptedMessage = encryption.encrypt();
-        System.out.println("Message after encryption:\n");
+        System.out.println("Message after encryption:");
         for(String s : encryptedMessage){
             System.out.print(s+" ");
         }

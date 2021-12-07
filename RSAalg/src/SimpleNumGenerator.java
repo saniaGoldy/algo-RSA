@@ -52,14 +52,14 @@ public class SimpleNumGenerator {
 
     public int[] getRandomPAndQ(){
         SecureRandom random = new SecureRandom();
-        //Get random number in range 0 - 9998
-        //Because 9999 is last index in simpleNumArr
+        //Get random number in range 0 - 98
+        //Need more complicated algorithm for bigger numbers
         int randomKey = random.nextInt(98);
-        int[] pAndQ = {simpleNumArr.get(randomKey),simpleNumArr.get(randomKey+1)};
-        /*Tests
-        //int[] pAndQ = {simpleNumArr.get(simpleNumArr.size()-2),simpleNumArr.get(simpleNumArr.size()-1)};
-        //System.out.println(pAndQ[0] + " " + pAndQ[1] + "\n");
-        */
+        int[] pAndQ = {simpleNumArr.get(randomKey-1),simpleNumArr.get(randomKey)};
+        /*Tests to define bounds where arithmetic algorithms from standard libraries still work
+        int[] pAndQ = {simpleNumArr.get(simpleNumArr.size()-2),simpleNumArr.get(simpleNumArr.size()-1)};
+        System.out.println(pAndQ[0] + " " + pAndQ[1] + "\n");
+         */
         return pAndQ;
     }
 }
